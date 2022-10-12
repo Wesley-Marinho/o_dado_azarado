@@ -1,0 +1,95 @@
+:root{
+  --white: #FFFFFF;
+
+  --gray-100: #e1e1e6;
+  --gray-300: #a8a8b3;
+  --gray-800: #29292e;
+  --gray-850: #1f2729;
+  --gray-900: #121214;
+
+  --cyan-500: #61dafb;
+  --yellow-500: #eba417;
+}
+
+::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--yellow-500);
+}
+
+$nav-tabs-border-radius: 0px;
+$nav-tabs-link-active-color: var(--yellow-500);
+$nav-link-hover-color: var(--yellow-500);
+$nav-link-color: var(--gray-850);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1080ox){
+  html{
+      font-size:93.75%;
+  }
+}
+
+@media (max-width: 720ox){
+  html{
+      font-size:87.5%;
+  }
+}
+
+body{
+  background: var(--gray-900) !important;
+}
+
+button{
+  cursor: pointer;
+}
+
+a {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+.container-main {
+  display: flex;
+  align-items: center;
+  height: calc(100vh - 5rem);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.list-container {
+  padding-top: 1rem;
+  overflow-y: auto !important;
+  max-height: 28rem;
+  min-width: 21rem !important;
+  max-width: 21rem !important;
+}
+
+.card-main {
+  background-color: var(--gray-100) !important;
+  border-radius: 10px !important;
+  max-width: 25rem !important;
+  max-height: 34rem !important;
+  min-height: 34rem !important;
+}
+
+.contentContainer{
+  max-width:1120px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  height: calc(100vh - 5rem);
+
+  display: flex;
+  align-items: center;
+  justify-self: space-between;
+}
+
+
+@import "node_modules/bootstrap/scss/bootstrap";

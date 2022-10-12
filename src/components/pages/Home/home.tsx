@@ -1,0 +1,18 @@
+import "./style.scss";
+export function Home() {
+  return (
+    <>
+        <main className="contentContainer">
+          <section className="hero">
+            <span>👏 Hey, Bem vindo!</span>
+            <h1>Ótimize sua campanha agora!</h1>
+            <p>
+              Aqui você consegue criar e editar fichas de personganes, encontrar
+              monstros, itens, magias e fazer rolagens de dados.
+            </p>
+          </section>
+          <img src="/images/dragon.png" alt="Map dragon" />
+        </main>
+    </>
+  );
+}
