@@ -8,7 +8,7 @@ export function Itens() {
     <Card className="card-main">
        <Card.Header as="h5">Itens</Card.Header>
       <Tabs defaultActiveKey={1} className="nav-tabs" fill >
-        <Tab eventKey={1} title="Itens" className="nav-link">
+        <Tab eventKey={1} title="Equipamentos" className="nav-link">
           <Items />
         </Tab>
         <Tab eventKey={2} title="Armas">
