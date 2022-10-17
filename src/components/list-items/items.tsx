@@ -1,36 +1,29 @@
 import { gql, useQuery } from "@apollo/client";
 import { Container, ListGroup, Form } from "react-bootstrap";
-type Weapon = {
+type Item = {
   name: String;
-  damage: String;
-  properties: String;
   price: String;
 };
 
-const GET_WEAPONS_QUERY = gql`
+const GET_ITEMS_QUERY = gql`
   query MyQuery {
-    weapons(first: 25, orderBy: name_ASC) {
+    items(first: 95, orderBy: name_ASC) {
       name
-      damage
-      properties
       price
     }
   }
 `;
 
 export function Items() {
-  const { data } = useQuery<{ weapons: Weapon[] }>(GET_WEAPONS_QUERY);
+  const { data } = useQuery<{ items: Item[] }>(GET_ITEMS_QUERY);
   return (
     <Container className="list-container">
         <ListGroup>
-          {data?.weapons.map((weapon) => {
+          {data?.items.map((item) => {
             return (
               <ListGroup.Item>
-                <Form.Label>Nome: {weapon.name}</Form.Label> <br />
-                <Form.Label>Dano: {weapon.damage}</Form.Label> <br />
-                <Form.Label>Propriedades: {weapon.properties}</Form.Label>{" "}
-                <br />
-                <Form.Label>Preço: {weapon.price}</Form.Label>
+                <Form.Label>Nome: {item.name}</Form.Label> <br />
+                <Form.Label>Preço: {item.price}</Form.Label>
               </ListGroup.Item>
             );
           })}
