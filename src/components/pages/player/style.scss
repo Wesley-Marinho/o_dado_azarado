@@ -1,0 +1,13 @@
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+    overflow: hidden;
+}
+
+#content {
+    width: 100%;
+    padding: 20px;
+    height: calc(100vh - 3rem);
+    transition: all 0.3s;
+}

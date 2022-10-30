@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import { Home } from "../pages/Home/home";
 import { Master } from "../pages/master";
-import { Player } from "../pages/player";
+import { Player } from "../pages/player/player";
 import { GitButton } from "../github-button/git-button";
 import "./style.scss";
 
