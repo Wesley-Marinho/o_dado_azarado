@@ -22,3 +22,24 @@
     margin-left: -250px;
   }
 }
+
+.contentSideBar{
+  max-width:1120px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  align-items: center;
+}
+
+.info-content {
+  display: flex;
+}
+
+.labels{
+  max-width: 150px;
+  padding-top: 0.5rem;
+}
+
+.exp-input{
+  padding-top: 0.5rem;
+  max-width: 76px;
+}
