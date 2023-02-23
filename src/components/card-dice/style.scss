@@ -6,3 +6,19 @@
   background-color: var(--gray-100) !important;
   border-radius: 10px !important;
 }
+
+.animate {
+  animation: scale 1s ease-in-out;
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

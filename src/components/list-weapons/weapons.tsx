@@ -23,14 +23,14 @@ export function Weapons() {
   return (
     <Container className="list-container">
         <ListGroup>
-          {data?.weapons.map((weapon) => {
+          {data?.weapons.map(({name, damage, properties, price}) => {
             return (
               <ListGroup.Item>
-                <Form.Label>Nome: {weapon.name}</Form.Label> <br />
-                <Form.Label>Dano: {weapon.damage}</Form.Label> <br />
-                <Form.Label>Propriedades: {weapon.properties}</Form.Label>{" "}
+                <Form.Label>Nome: {name}</Form.Label> <br />
+                <Form.Label>Dano: {damage}</Form.Label> <br />
+                <Form.Label>Propriedades: {properties}</Form.Label>{" "}
                 <br />
-                <Form.Label>Preço: {weapon.price}</Form.Label>
+                <Form.Label>Preço: {price}</Form.Label>
               </ListGroup.Item>
             );
           })}
