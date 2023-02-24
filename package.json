@@ -58,6 +58,14 @@
     "@types/node": "^18.7.23",
     "@types/react": "^18.0.21",
     "@types/react-slick": "^0.23.10",
+    "gh-pages": "^5.0.0",
     "typescript": "^4.8.3"
-  }
+  },
+
+  "homepage": "https://wesley-marinho.github.io/o_dado_azarado",
+  "scripts": {
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d build"
+}
+
 }
