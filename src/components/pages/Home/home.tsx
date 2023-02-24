@@ -5,9 +5,9 @@ export function Home() {
         <main className="contentContainer">
           <section className="hero">
             <span>👏 Hey, Bem vindo!</span>
-            <h1>Ótimize sua campanha agora!</h1>
+            <h1>Essa site foi criado para ajudar mestres e jogadores de RPG medieval.</h1>
             <p>
-              Aqui você consegue criar e editar fichas de personganes, encontrar
+              Aqui você consegue criar & editar fichas de personganes, encontrar
               monstros, itens, magias e fazer rolagens de dados.
             </p>
           </section>

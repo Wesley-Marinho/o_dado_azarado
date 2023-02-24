@@ -11,14 +11,6 @@
   --yellow-500: #eba417;
 }
 
-::-webkit-scrollbar {
-  width: 0.25rem;
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--yellow-500);
-}
-
 $nav-tabs-border-radius: 0px;
 $nav-tabs-link-active-color: var(--yellow-500);
 $nav-link-hover-color: var(--yellow-500);
@@ -42,6 +34,14 @@ $nav-link-color: var(--gray-850);
   }
 }
 
+::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--yellow-500);
+}
+
 body{
   background: var(--gray-900) !important;
 }
@@ -60,6 +60,7 @@ a {
   height: calc(100vh - 5rem);
   padding: 1rem;
   justify-content: space-around;
+  align-items: center;
 }
 
 .list-container {
@@ -78,14 +79,6 @@ a {
   min-height: 34rem !important;
 }
 
-.contentContainer{
-  max-width:1120px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  height: calc(100vh - 5rem);
-  display: flex;
-  align-items: center;
-}
 
 
 @import "node_modules/bootstrap/scss/bootstrap";
