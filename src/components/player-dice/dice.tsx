@@ -1,12 +1,5 @@
 import { useState } from "react";
-import {
-  Card,
-  Button,
-  ButtonGroup,
-  Form,
-  InputGroup,
-  FloatingLabel,
-} from "react-bootstrap";
+import { Card, Button, ButtonGroup, Form, InputGroup, FloatingLabel } from "react-bootstrap";
 import "./style.scss";
 
 type AdvancedRoll = { quantity: number; modifier: number };
@@ -29,15 +22,12 @@ export function Dice() {
     }, 1000);
   };
 
-  const changeRoll = <P extends keyof AdvancedRoll>(
-    prop: P,
-    value: AdvancedRoll[P]
-  ) => {
+  const changeRoll = <P extends keyof AdvancedRoll>(prop: P, value: AdvancedRoll[P]) => {
     setAdvancedRoll({ ...advancedRoll, [prop]: value });
   };
 
   return (
-    <div>
+    <div className="d-flex justify-content-center align-items-center flex-column">
       <InputGroup size="sm">
         <FloatingLabel label="Quantidade">
           <Form.Control
@@ -57,7 +47,7 @@ export function Dice() {
         </FloatingLabel>
       </InputGroup>
 
-      <InputGroup size="sm">
+      <InputGroup size="sm" className="mt-2">
         <FloatingLabel label="Modificador">
           <Form.Control
             inputMode="numeric"
@@ -76,20 +66,17 @@ export function Dice() {
         </FloatingLabel>
       </InputGroup>
 
-      <div className="mx-auto">
-        <ButtonGroup vertical>
-          {[4, 6, 8, 10, 12, 20, 100].map((side) => (
-            <Button variant="dark" key={side} onClick={() => rollDice(side)}>
-              D{side}
-            </Button>
-          ))}
-        </ButtonGroup>
-      </div>
-      <div className="mx-auto">
-        <Card.Text as="h1" className={animationClass}>
-          {roll}
-        </Card.Text>
-      </div>
+      <ButtonGroup vertical className="mt-2">
+        {[4, 6, 8, 10, 12, 20, 100].map((side) => (
+          <Button variant="dark" key={side} onClick={() => rollDice(side)}>
+            D{side}
+          </Button>
+        ))}
+      </ButtonGroup>
+
+      <Card.Text as="h1" className={`${animationClass} mt-2 text-center`}>
+        {roll}
+      </Card.Text>
     </div>
   );
 }

@@ -10,7 +10,9 @@
   padding: 0 2 rem;
   display: flex;
   align-items: center;
-
+  h1{
+    color: var(--white);
+  }
   nav{
       margin-left: 5rem;
       height: 5rem;

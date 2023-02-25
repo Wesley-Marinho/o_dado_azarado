@@ -17,7 +17,7 @@ export function Header() {
     <>
       <header className="headercontainer">
         <div className="headercontent">
-          <img src="/images/brand.svg" alt="ig.news" />
+         <h1>O dado azarado</h1>
           <nav>
             <Link to={"/o_dado_azarado/"} className={location.pathname==="/o_dado_azarado" ? "active":""}>
               Home

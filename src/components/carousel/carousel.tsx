@@ -1,21 +1,30 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { Dice } from "../card-dice/dice";
+import { Battle } from "../card-battle/battle";
+import "./style.scss";
 export function Carousel() {
   var settings = {
-    className: "",
-    dots: true,
+    dots: false,
     infinite: true,
+    speed: 700,
     slidesToShow: 1,
     slidesToScroll: 1,
-    adaptiveHeight: true,
+ 
   };
   return (
-    <div className="container-main">
+    <div className="container">
       <Slider {...settings}>
         <div>
-          <Dice />
+          <Battle />
+        </div>
+
+        <div>
+          <Battle />
+        </div>
+
+        <div>
+          <Battle />
         </div>
       </Slider>
     </div>

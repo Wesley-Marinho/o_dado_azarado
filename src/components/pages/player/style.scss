@@ -10,4 +10,7 @@
     padding: 20px;
     height: calc(100vh - 3rem);
     transition: all 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
