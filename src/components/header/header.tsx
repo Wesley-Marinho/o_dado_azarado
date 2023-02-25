@@ -29,9 +29,9 @@ export function Header() {
         </div>
       </header>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/master" element={<Master />} />
-        <Route path="/player" element={<Player />} />
+        <Route path="/o_dado_azarado/" element={<Home />} />
+        <Route path="/o_dado_azarado/master" element={<Master />} />
+        <Route path="/o_dado_azarado/player" element={<Player />} />
       </Routes>
     </>
   );
