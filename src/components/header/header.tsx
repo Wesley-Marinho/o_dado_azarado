@@ -19,11 +19,11 @@ export function Header() {
         <div className="headercontent">
           <img src="/images/brand.svg" alt="ig.news" />
           <nav>
-            <Link to={"/"} className={location.pathname==="/" ? "active":""}>
+            <Link to={"/o_dado_azarado/"} className={location.pathname==="/o_dado_azarado" ? "active":""}>
               Home
             </Link>
-            <Link to={"/master"} className={location.pathname==="/master" ? "active":""}>Mestre</Link>
-            <Link to={"/player"} className={location.pathname==="/player" ? "active":""}>Jogador</Link>
+            <Link to={"/o_dado_azarado/master"} className={location.pathname==="/o_dado_azarado/master" ? "active":""}>Mestre</Link>
+            <Link to={"/o_dado_azarado/player"} className={location.pathname==="/o_dado_azarado/player" ? "active":""}>Jogador</Link>
           </nav>
           <GitButton />
         </div>
