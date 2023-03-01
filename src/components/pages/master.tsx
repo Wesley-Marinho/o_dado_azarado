@@ -1,4 +1,3 @@
-import React from "react";
 import { Container } from "react-bootstrap";
 import { Dice } from "../card-dice/dice";
 import { Npc } from "../card-npc/npc";
