@@ -11,11 +11,14 @@ export function SideBar() {
     <>
       <Container id="sidebarPro">
         <main className="contentSideBar">
+          <Dice />
+        </main>
+      </Container>
+      <Container id="sidebar">
+        <main className="contentSideBar">
           <Principal />
           <hr />
           <Stats />
-          <hr />
-          <Dice />
         </main>
       </Container>
       <Container
