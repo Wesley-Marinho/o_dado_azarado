@@ -11,7 +11,7 @@ export function Home() {
               monstros, itens, magias e fazer rolagens de dados.
             </p>
           </section>
-          <img src="/images/dragon.png" alt="Map dragon" />
+          <img src="images/dragon.png" alt="Map dragon" />
         </main>
     </>
   );

@@ -1,68 +1,63 @@
-:root{
-  --white: #FFFFFF;
-
+:root {
+  --white: #ffffff;
   --gray-100: #e1e1e6;
   --gray-300: #a8a8b3;
   --gray-800: #29292e;
   --gray-850: #1f2729;
   --gray-900: #121214;
-
   --cyan-500: #61dafb;
   --yellow-500: #eba417;
 }
 
+/* Nav Tabs */
 $nav-tabs-border-radius: 0px;
 $nav-tabs-link-active-color: var(--yellow-500);
 $nav-link-hover-color: var(--yellow-500);
 $nav-link-color: var(--gray-850);
+
+/* General */
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+button {
+  cursor: pointer;
+}
+a {
+  color: inherit !important;
+  text-decoration: none !important;
+}
 
-@media (max-width: 1080ox){
-  html{
-      font-size:93.75%;
+/* Media Queries */
+@media (max-width: 1080px) {
+  html {
+    font-size: 93.75%;
   }
 }
 
-@media (max-width: 720ox){
-  html{
-      font-size:87.5%;
+@media (max-width: 720px) {
+  html {
+    font-size: 12px;
   }
 }
 
+/* Scrollbar */
 ::-webkit-scrollbar {
-  width: 0.25rem;
+  width: 0.2rem;
 }
 
 ::-webkit-scrollbar-thumb {
   background: var(--yellow-500);
 }
 
-body{
+/* Body */
+body {
   background: var(--gray-900) !important;
 }
 
-button{
-  cursor: pointer;
-}
-
-a {
-  color: inherit !important;
-  text-decoration: none !important;
-}
-
-.container-main {
-  display: flex;
-  height: calc(100vh - 5rem);
-  padding: 1rem;
-  justify-content: space-around;
-  align-items: center;
-}
-
+/* Containers */
 .list-container {
   padding-top: 1rem;
   overflow-y: auto !important;
@@ -79,4 +74,44 @@ a {
   min-height: 34rem !important;
 }
 
+.wrapper {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+  overflow: hidden;
+}
+
+.contentSideBar{
+  max-width:1120px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  align-items: center;
+  padding: 1rem;
+}
+
+#content {
+  width: 100%;
+  padding: 20px;
+  height: calc(100vh - 3rem);
+  transition: all 0.3s;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#sidebarPro {
+  min-width: 200px;
+  max-width: 200px;
+  background: var(--yellow-500);
+}
+
+@media (max-width: 768px) {
+  #sidebarPro {
+    margin-left: -250px;
+  }
+}
+
+
+
+/* Bootstrap */
 @import "node_modules/bootstrap/scss/bootstrap";

@@ -11,26 +11,6 @@
   }
 }
 
-#sidebarPro {
-  min-width: 200px;
-  max-width: 200px;
-  background: var(--yellow-500);
-}
-
-@media (max-width: 768px) {
-  #sidebarPro {
-    margin-left: -250px;
-  }
-}
-
-.contentSideBar{
-  max-width:1120px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  align-items: center;
-  padding: 1rem;
-}
-
 .info-content {
   display: flex;
 }

@@ -17,7 +17,7 @@ export function Header() {
     <>
       <header className="headercontainer">
         <div className="headercontent">
-         <h1>O dado azarado</h1>
+        <img src="images/brand.svg" alt="O dado Azarado" />
           <nav>
             <Link to={"/o_dado_azarado/"} className={location.pathname==="/o_dado_azarado/" ? "active":""}>
               Home
