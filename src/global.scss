@@ -91,7 +91,6 @@ body {
 
 #content {
   width: 100%;
-  padding: 20px;
   height: calc(100vh - 3rem);
   transition: all 0.3s;
   display: flex;
@@ -110,8 +109,6 @@ body {
     margin-left: -250px;
   }
 }
-
-
 
 /* Bootstrap */
 @import "node_modules/bootstrap/scss/bootstrap";

@@ -1,1 +1,29 @@
+.ficha-container {
+  height: calc(100vh - 3rem);
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  h1{
+    color: var(--gray-100);
+  }
+  th {
+    color: var(--gray-100);
+  }
+  
+  td {
+    color: var(--gray-100)
+  }
+}
 
+.ficha-column {
+  padding: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 100%;
+}
+
+.magic {
+  margin-top: auto;
+}
