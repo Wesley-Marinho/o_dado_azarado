@@ -39,7 +39,7 @@ a {
 
 @media (max-width: 720px) {
   html {
-    font-size: 12px;
+    font-size: 9px; /* alterado para ajustar à tela de 720p */
   }
 }
 
@@ -60,8 +60,8 @@ body {
 /* Containers */
 .list-container {
   padding-top: 1rem;
-  overflow-y: auto !important;
-  max-height: 28rem;
+  overflow-y: auto;
+  max-height: 28rem; /* ajustado para caber em uma tela de 720p */
   min-width: 21rem !important;
   max-width: 21rem !important;
 }
@@ -81,12 +81,18 @@ body {
   overflow: hidden;
 }
 
-.contentSideBar{
-  max-width:1120px;
+.contentSideBar {
+  max-width: 720px; /* ajustado para caber em uma tela de 720p */
   margin: 0 auto;
-  padding: 0 2rem;
   align-items: center;
+  justify-content: flex-start;
   padding: 1rem;
+}
+
+.edit-button {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 #content {
@@ -99,8 +105,8 @@ body {
 }
 
 #sidebarPro {
-  min-width: 200px;
-  max-width: 200px;
+  min-width: 180px; /* ajustado para caber em uma tela de 720p */
+  max-width: 180px; /* ajustado para caber em uma tela de 720p */
   background: var(--yellow-500);
 }
 

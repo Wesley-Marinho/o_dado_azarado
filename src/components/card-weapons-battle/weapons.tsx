@@ -1,10 +1,11 @@
-import { Table} from 'react-bootstrap';
+import { Table, Button } from 'react-bootstrap';
 export function Weapons(){
   return (
     <>
-    <h1>
-      Armas
-    </h1>
+      <div className="edit-button">
+        <h1>Armas</h1>
+        <Button variant="light">Editar</Button>
+      </div>
     <Table bordered>
       <thead>
         <tr>

@@ -22,7 +22,7 @@ export function SideBar() {
         </main>
       </Container>
       <Container
-        id="sidebar"
+        id="sidebarSkill"
         style={{ display: "flex", flexDirection: "column" }}
       >
         <main className="contentSideBar" style={{ flexGrow: 1 }}>
@@ -32,7 +32,7 @@ export function SideBar() {
             <Skills />
           </>
         </main>
-        <div className="d-flex justify-content-center align-items-center sidebar-footer container">
+        <div className="button">
           <Button variant="dark">Editar</Button>
         </div>
       </Container>
