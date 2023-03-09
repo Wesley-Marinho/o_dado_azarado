@@ -1,16 +1,20 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Table, Button, Modal } from "react-bootstrap";
 import { gql, useQuery } from "@apollo/client";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
 type Item = {
   name: string;
   price: string;
+  quantity: string;
 };
 
 const GET_ITEMS_QUERY = gql`
   query {
     items(first: 95, orderBy: name_ASC) {
       name
+      quantity
       price
     }
   }
@@ -19,9 +23,12 @@ const GET_ITEMS_QUERY = gql`
 export function Items() {
   const { data } = useQuery<{ items: Item[] }>(GET_ITEMS_QUERY);
   const [show, setShow] = useState(false);
+  const [selectedItems, setSelectedItems] = useState<Item[]>([]);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const handleSelectItem = (item: Item) => setSelectedItems(selectedItems.concat(item));
+
   return (
     <>
       <div className="edit-button">
@@ -39,10 +46,12 @@ export function Items() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Backpack</td>
-            <td>1</td>
-          </tr>
+          {selectedItems.map((item, index) => (
+            <tr key={index}>
+              <td>{item.name}</td>
+              <td>{item.quantity}</td>
+            </tr>
+          ))}
         </tbody>
       </Table>
 
@@ -55,27 +64,30 @@ export function Items() {
             <thead>
               <tr>
                 <th>Nome</th>
+                <th>Quantidade</th>
                 <th>Preço</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
               {data?.items.map((item, index) => (
                 <tr key={index}>
                   <td>{item.name}</td>
+                  <td>{item.quantity}</td>
                   <td>{item.price}</td>
+                  <td>
+                    <Button
+                      variant="primary"
+                      onClick={() => handleSelectItem(item)}
+                    >
+                      <FontAwesomeIcon className="fa-solid" icon={faCheck} />
+                    </Button>
+                  </td>
                 </tr>
               ))}
             </tbody>
           </Table>
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
       </Modal>
     </>
   );

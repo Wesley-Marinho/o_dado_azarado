@@ -3,7 +3,7 @@ import Monster from "./monster";
 import itemsSchema from "../../model/itemSchema";
 
 @Resolver(Monster)
-export class WeaponResolver {
+export class MonsterResolver {
   @Query(() => [Monster])
   async weapons() {
     const monster = await itemsSchema.find();

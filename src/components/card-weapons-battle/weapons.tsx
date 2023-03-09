@@ -1,45 +1,95 @@
-import { Table, Button } from 'react-bootstrap';
-export function Weapons(){
+import { useState } from "react";
+import { Table, Button, Modal } from "react-bootstrap";
+import { gql, useQuery } from "@apollo/client";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
+type Weapon = {
+  name: String;
+  damage: String;
+  properties: String;
+};
+
+const GET_WEAPONS_QUERY = gql`
+  query MyQuery {
+    weapons(first: 25, orderBy: name_ASC) {
+      name
+      damage
+      properties
+    }
+  }
+`;
+
+export function Weapons() {
+  const { data } = useQuery<{ weapons: Weapon[] }>(GET_WEAPONS_QUERY);
+  const [show, setShow] = useState(false);
+  const [selectedWeapons, setSelectedWeapons] = useState<Weapon[]>([]);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  const handleSelectWeapon = (weapon: Weapon) =>
+    setSelectedWeapons(selectedWeapons.concat(weapon));
   return (
     <>
       <div className="edit-button">
         <h1>Armas</h1>
-        <Button variant="light">Editar</Button>
+        <Button variant="light" onClick={handleShow}>
+          Editar
+        </Button>
       </div>
-    <Table bordered>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Category</th>
-          <th>Range</th>
-          <th>Damage</th>
-          <th>Weight</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Longsword</td>
-          <td>Melee</td>
-          <td>-</td>
-          <td>1d8 slashing</td>
-          <td>3 lb.</td>
-        </tr>
-        <tr>
-          <td>Shortbow</td>
-          <td>Ranged</td>
-          <td>80/320 ft.</td>
-          <td>1d6 piercing</td>
-          <td>2 lb.</td>
-        </tr>
-        <tr>
-          <td>Dagger</td>
-          <td>Melee/Ranged</td>
-          <td>20/60 ft.</td>
-          <td>1d4 piercing</td>
-          <td>1 lb.</td>
-        </tr>
-      </tbody>
-    </Table>
+      <Table bordered>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Dano</th>
+            <th>Propriedade</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {selectedWeapons.map((weapon, index) => (
+            <tr key={index}>
+              <td>{weapon.name}</td>
+              <td>{weapon.damage}</td>
+              <td>{weapon.properties}</td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Itens</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Table bordered>
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Quantidade</th>
+                <th>Preço</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {data?.weapons.map((weapon, index) => (
+                <tr key={index}>
+                  <td>{weapon.name}</td>
+                  <td>{weapon.damage}</td>
+                  <td>{weapon.properties}</td>
+                  <td>
+                    <Button
+                      variant="primary"
+                      onClick={() => handleSelectWeapon(weapon)}
+                    >
+                      <FontAwesomeIcon className="fa-solid" icon={faCheck} />
+                    </Button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+        </Modal.Body>
+      </Modal>
     </>
   );
-};
+}

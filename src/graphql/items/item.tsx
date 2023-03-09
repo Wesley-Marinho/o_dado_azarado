@@ -6,6 +6,8 @@ class Item {
   name: String;
   @Field()
   price: String;
+  @Field()
+  quantity: String;
 }
 
 export default Item;
