@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Table, Button, Modal } from "react-bootstrap";
 import { gql, useQuery } from "@apollo/client";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import { faCheck, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
 type Item = {
   name: string;
@@ -27,7 +27,14 @@ export function Items() {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const handleSelectItem = (item: Item) => setSelectedItems(selectedItems.concat(item));
+  const handleSelectItem = (item: Item) =>
+    setSelectedItems(selectedItems.concat(item));
+
+  const handleDeleteItem = (index: number) => {
+    const updatedItems = [...selectedItems];
+    updatedItems.splice(index, 1);
+    setSelectedItems(updatedItems);
+  };
 
   return (
     <>
@@ -43,6 +50,7 @@ export function Items() {
           <tr>
             <th>Nome</th>
             <th>Quantidade</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -50,6 +58,14 @@ export function Items() {
             <tr key={index}>
               <td>{item.name}</td>
               <td>{item.quantity}</td>
+              <td>
+                <Button
+                  variant="outline-danger"
+                  onClick={() => handleDeleteItem(index)}
+                >
+                  <FontAwesomeIcon className="fa-solid" icon={faTrashCan} />
+                </Button>
+              </td>
             </tr>
           ))}
         </tbody>

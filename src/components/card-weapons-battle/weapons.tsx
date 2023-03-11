@@ -2,7 +2,8 @@ import { useState } from "react";
 import { Table, Button, Modal } from "react-bootstrap";
 import { gql, useQuery } from "@apollo/client";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import { faCheck, faTrashCan } from "@fortawesome/free-solid-svg-icons";
+
 type Weapon = {
   name: String;
   damage: String;
@@ -28,6 +29,13 @@ export function Weapons() {
   const handleShow = () => setShow(true);
   const handleSelectWeapon = (weapon: Weapon) =>
     setSelectedWeapons(selectedWeapons.concat(weapon));
+
+  const handleDeleteWeapon = (index: number) => {
+    const updatedWeapons = [...selectedWeapons];
+    updatedWeapons.splice(index, 1);
+    setSelectedWeapons(updatedWeapons);
+  };
+
   return (
     <>
       <div className="edit-button">
@@ -42,6 +50,7 @@ export function Weapons() {
             <th>Nome</th>
             <th>Dano</th>
             <th>Propriedade</th>
+            <th></th>
           </tr>
         </thead>
 
@@ -51,6 +60,14 @@ export function Weapons() {
               <td>{weapon.name}</td>
               <td>{weapon.damage}</td>
               <td>{weapon.properties}</td>
+              <td>
+                <Button
+                  variant="outline-danger"
+                  onClick={() => handleDeleteWeapon(index)}
+                >
+                  <FontAwesomeIcon className="fa-solid" icon={faTrashCan} />
+                </Button>
+              </td>
             </tr>
           ))}
         </tbody>

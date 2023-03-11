@@ -1,5 +1,6 @@
 import { gql, useQuery } from "@apollo/client";
 import { Container, ListGroup, Form } from "react-bootstrap";
+import { useState } from "react";
 
 type Armor = {
   armorClass: number;
@@ -21,11 +22,28 @@ const GET_ARMORS_QUERY = gql`
 
 export function Armors() {
   const { data } = useQuery<{ armors: Armor[] }>(GET_ARMORS_QUERY);
+  const [searchString, setSearchString] = useState("");
+
+  const filteredArmors = data?.armors.filter((armor) =>
+    armor.name.toLowerCase().includes(searchString.toLowerCase())
+  );
 
   return (
     <Container className="list-container">
+      <div className="search">
+        <Form>
+          <Form.Group controlId="armor-search">
+            <Form.Control
+              type="text"
+              placeholder="O que está procurando?"
+              value={searchString}
+              onChange={(event) => setSearchString(event.target.value)}
+            />
+          </Form.Group>
+        </Form>
+      </div>
       <ListGroup>
-        {data?.armors.map(({ armorClass, name, price, type }) => (
+        {filteredArmors?.map(({ armorClass, name, price, type }) => (
           <ListGroup.Item key={name}>
             <Form.Label>Nome: {name}</Form.Label> <br />
             <Form.Label>Classe de armadura: +{armorClass}</Form.Label> <br />

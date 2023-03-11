@@ -2,7 +2,7 @@ import { Container } from "react-bootstrap";
 import { Npc } from "../../card-npc/npc";
 import { Itens } from "../../card-itens/itens";
 import { Monsters } from "../../card-monster/monster";
-import { Dice } from "../../player-dice/dice";
+import { Dice } from "../../dice-sidebar/dice";
 
 export function Master() {
   return (

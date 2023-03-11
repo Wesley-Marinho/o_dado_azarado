@@ -1,7 +1,7 @@
 import "./style.scss";
 import { Container, Button } from "react-bootstrap";
 import { Principal } from "./components/principal";
-import { Dice } from "../player-dice/dice";
+import { Dice } from "../dice-sidebar/dice";
 import { Mods } from "./components/mods";
 import { Skills } from "./components/skills";
 import { Stats } from "./components/stats";
