@@ -59,17 +59,17 @@ body {
 
 /* Containers */
 .list-container {
-  padding-top: 1rem;
+  padding-top: 0.2rem;
   overflow-y: auto;
   max-height: 28rem; /* ajustado para caber em uma tela de 720p */
-  min-width: 21rem !important;
-  max-width: 21rem !important;
+  min-width: 18rem !important;
+  max-width: 20rem !important;
 }
 
 .card-main {
   background-color: var(--gray-100) !important;
   border-radius: 10px !important;
-  max-width: 25rem !important;
+  max-width: 20rem !important;
   max-height: 34rem !important;
   min-height: 34rem !important;
 }
@@ -98,6 +98,14 @@ body {
 .search{
   align-items: center;
   padding: 0.5rem;
+}
+
+.custom-tabs {
+  font-size: 14px;
+}
+
+.custom-tab {
+  font-size: 14px;
 }
 
 #content {

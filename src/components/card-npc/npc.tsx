@@ -23,7 +23,7 @@ export function Npc() {
 
       <Card.Body className="d-grid gap-3">
         <div className="mx-auto">
-          <Card.Text as="h5">{isNPC.info}</Card.Text>
+          <Card.Text as="p">{isNPC.info}</Card.Text>
         </div>
       </Card.Body>
       <Card.Footer className="text-muted text-center">
