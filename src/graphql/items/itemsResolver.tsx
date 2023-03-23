@@ -5,7 +5,7 @@ import itemsSchema from "../../model/itemSchema";
 @Resolver(Item)
 export class ItemResolver {
   @Query(() => [Item])
-  async weapons() {
+  async items() {
     const item = await itemsSchema.find();
     return item;
   }

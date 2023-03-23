@@ -3,62 +3,94 @@
   top: 3rem;
   left: 180px;
   width: 700px;
-  height: 100%;
+  height: calc(100vh - 3rem);
   background-color: var(--gray-800);
-  z-index: 999;
   justify-content: center;
   align-items: center;
   padding: 1rem;
-  }
-
-  h4{
+  overflow-y: auto;
+  h4 {
     color: var(--white);
   }
 
-  th{
+  th {
     color: var(--white);
   }
 
-  td{
+  td {
     color: var(--white);
   }
+}
 
-  .toggle1 {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    border-radius: 0!important;
-    display: flex!important;
-    justify-content: center!important;
-    align-items: center!important;
-    left: 180px;
-    top: 4rem;
+.toggle1 {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 0 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  left: 179px;
+  top: 4rem;
+  background-color: var(--gray-900)!important;
+  border-color: var(--yellow-500)!important;
+  color: var(--white)!important;
+  transition: background-color 0.2s ease-out;
+}
+
+.toggle1:hover {
+  background-color: var(--yellow-500)!important;
+}
+
+.toggle1:active {
+  background-color: var(--yellow-500)!important;
 }
 
 .toggle2 {
   position: absolute;
   width: 50px;
   height: 50px;
-  border-radius: 0!important;
-  display: flex!important;
-  justify-content: center!important;
-  align-items: center!important;
+  border-radius: 0 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
   line-height: 50px;
   text-align: center;
-  left: 180px;
+  left: 179px;
   top: 4rem + 3.75rem;
+  background-color: var(--gray-900)!important;
+  border-color: var(--yellow-500)!important;
+  color: var(--white)!important;
+}
+.toggle2:hover {
+  background-color: var(--yellow-500)!important;
+}
+
+.toggle3:active {
+  background-color: var(--yellow-500)!important;
 }
 
 .toggle3 {
   position: absolute;
   width: 50px;
   height: 50px;
-  border-radius: 0!important;
-  display: flex!important;
-  justify-content: center!important;
-  align-items: center!important;
+  border-radius: 0 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
   line-height: 50px;
   text-align: center;
-  left: 180px;
+  left: 179px;
   top: 4rem + 7.5rem;
+  background-color: var(--gray-900)!important;
+  border-color: var(--yellow-500)!important;
+  color: var(--white)!important;
+}
+
+.toggle1:hover {
+  background-color: var(--yellow-500)!important;
+}
+
+.toggle1:active {
+  background-color: var(--yellow-500)!important;
 }

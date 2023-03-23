@@ -5,7 +5,7 @@ import magicSchema from "../../model/magicSchema";
 @Resolver(Magic)
 export class magicResolver {
   @Query(() => [Magic])
-  async weapons() {
+  async magics() {
     const magic = await magicSchema.find();
     return magic;
   }

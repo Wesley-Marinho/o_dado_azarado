@@ -1,16 +1,16 @@
 import { useState } from "react";
-import { Button, Table } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faMap,
   faUserGroup,
   faShieldHalved,
 } from "@fortawesome/free-solid-svg-icons";
+import { Exploration } from "./exploration/exploration";
 import "./style.scss";
 
 export function Tabs() {
   const [isOverlayMapVisible, setisOverlayMapVisible] = useState(false);
-  const buttonVariant = isOverlayMapVisible ? "warning" : "outline-warning";
   const handleOverlayClick = () => {
     setisOverlayMapVisible(!isOverlayMapVisible);
   };
@@ -21,9 +21,6 @@ export function Tabs() {
   };
 
   const [isOverlaySocialVisible, setisOverlaySocialVisible] = useState(false);
-  const buttonVariantSocial = isOverlaySocialVisible
-    ? "warning"
-    : "outline-warning";
   const handleOverlaySocialClick = () => {
     setisOverlaySocialVisible(!isOverlaySocialVisible);
   };
@@ -34,9 +31,6 @@ export function Tabs() {
   };
 
   const [isOverlayBattleVisible, setisOverlayBattleVisible] = useState(false);
-  const buttonVariantBattle = isOverlayBattleVisible
-    ? "warning"
-    : "outline-warning";
   const handleBattleOverlayClick = () => {
     setisOverlayBattleVisible(!isOverlayBattleVisible);
   };
@@ -50,7 +44,6 @@ export function Tabs() {
     <>
       <div>
         <Button
-          variant={buttonVariant}
           className="toggle1"
           style={buttonStyle}
           onClick={handleOverlayClick}
@@ -59,7 +52,6 @@ export function Tabs() {
         </Button>
 
         <Button
-          variant={buttonVariantSocial}
           className="toggle2"
           style={buttonSocialStyle}
           onClick={handleOverlaySocialClick}
@@ -68,7 +60,6 @@ export function Tabs() {
         </Button>
 
         <Button
-          variant={buttonVariantBattle}
           className="toggle3"
           style={buttonBattleStyle}
           onClick={handleBattleOverlayClick}
@@ -82,63 +73,7 @@ export function Tabs() {
 
         {isOverlayMapVisible && (
           <div className="overlay">
-             <h4>Luz, visão e clima</h4>
-            <Table bordered>
-              <thead>
-                <tr>
-                  <th>Luz</th>
-                  <th>Vizão</th>
-                  <th>Distancia</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Lanterna Furta-Fogo</td>
-                  <td>Cone de 18m de luz plena</td>
-                  <td>+18m de penumbra</td>
-                </tr>
-              </tbody>
-            </Table>
-
-            <Table bordered>
-              <thead>
-                <tr>
-                  <th>Escuridão</th>
-                  <th>Tipo</th>
-                  <th>Desvatagens luz</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Escuridão Leve</td>
-                  <td>
-                    Penumbra, névoa disforme, folhagem moderada, crepúsculo,
-                    aurora, lua cheia
-                  </td>
-                  <td>
-                    Desvantagem em Sabedoria (Percepção) relacionado à visão;
-                  </td>
-                </tr>
-              </tbody>
-            </Table>
-
-            <Table bordered>
-              <thead>
-                <tr>
-                  <th>Clima</th>
-                  <th>Desvantagem clima</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Precipitação pesada</td>
-                  <td>
-                    Precipitação pesada. Veja Escuridão Leve. Desvantagem em
-                    testes de Sabedoria (Percepção) relacionados à audição.
-                  </td>
-                </tr>
-              </tbody>
-            </Table>
+            <Exploration />
           </div>
         )}
 
