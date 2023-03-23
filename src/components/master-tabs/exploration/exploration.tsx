@@ -7,27 +7,74 @@ import { HungerTablle } from "./tabbles/hunger-tabble";
 import { LightTablle } from "./tabbles/light-tabble";
 import { TrackTablle } from "./tabbles/track-tabble";
 import { TripTablle } from "./tabbles/trip-tabble";
+import Accordion from "react-bootstrap/Accordion";
 export function Exploration() {
   return (
     <div className="overflow">
-      <h4>Luz e visão</h4>
-      <LightTablle />
-      <h4>Escuridão</h4>
-      <DarknessTablle />
-      <h4>Clima</h4>
-      <ClimateTablle />
-      <h4>Fome</h4>
-      <HungerTablle/>
-      <h4>Exaustão</h4>
-      <ExhaustionTablle/>
-      <h4>Rastreamento</h4>
-      <TrackTablle/>
-      <h4>Ritmo de viagem</h4>
-      <TripTablle/>
-      <h4>Terreno</h4>
-      <GroundTablle/>
-      <h4>Atividades de viagem</h4>
-      <ActivityTablle/>
+      <Accordion defaultActiveKey="">
+        <Accordion.Item eventKey="1">
+          <Accordion.Header>Luz e visão</Accordion.Header>
+          <Accordion.Body>
+            <LightTablle />
+          </Accordion.Body>
+        </Accordion.Item>
+
+        <Accordion.Item eventKey="2">
+          <Accordion.Header>Escuridão</Accordion.Header>
+          <Accordion.Body>
+            <DarknessTablle />
+          </Accordion.Body>
+        </Accordion.Item>
+
+        <Accordion.Item eventKey="-">
+          <Accordion.Header>Clima</Accordion.Header>
+          <Accordion.Body>
+            <ClimateTablle />
+          </Accordion.Body>
+        </Accordion.Item>
+
+        <Accordion.Item eventKey="3">
+          <Accordion.Header>Fome</Accordion.Header>
+          <Accordion.Body>
+            <HungerTablle />
+          </Accordion.Body>
+        </Accordion.Item>
+
+        <Accordion.Item eventKey="4">
+          <Accordion.Header>Exaustão</Accordion.Header>
+          <Accordion.Body>
+            <ExhaustionTablle />
+          </Accordion.Body>
+        </Accordion.Item>
+
+        <Accordion.Item eventKey="5">
+          <Accordion.Header>Rastreiamento</Accordion.Header>
+          <Accordion.Body>
+            <TrackTablle />
+          </Accordion.Body>
+        </Accordion.Item>
+
+        <Accordion.Item eventKey="6">
+          <Accordion.Header>Ritmo de viagem</Accordion.Header>
+          <Accordion.Body>
+            <TripTablle />
+          </Accordion.Body>
+        </Accordion.Item>
+
+        <Accordion.Item eventKey="7">
+          <Accordion.Header>Terreno</Accordion.Header>
+          <Accordion.Body>
+            <GroundTablle />
+          </Accordion.Body>
+        </Accordion.Item>
+
+        <Accordion.Item eventKey="8">
+          <Accordion.Header>Atividade de viagem</Accordion.Header>
+          <Accordion.Body>
+            <ActivityTablle />
+          </Accordion.Body>
+        </Accordion.Item>
+      </Accordion>
     </div>
   );
 }
