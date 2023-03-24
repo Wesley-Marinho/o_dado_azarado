@@ -31,10 +31,11 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "react-scripts test"
   },
   "eslintConfig": {
     "extends": [
@@ -61,14 +62,5 @@
     "gh-pages": "^5.0.0",
     "typescript": "^4.8.3"
   },
-
-  "homepage": "https://wesley-marinho.github.io/o_dado_azarado",
-  "scripts": {
-  "predeploy": "npm run build",
-  "deploy": "gh-pages -d build",
-  "start": "react-scripts start",
-  "build": "react-scripts build",
-  "test": "react-scripts test"
-}
-
+  "homepage": "https://wesley-marinho.github.io/o_dado_azarado"
 }
