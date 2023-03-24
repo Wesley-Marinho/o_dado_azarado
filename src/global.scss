@@ -69,6 +69,7 @@ body {
 .card-main {
   background-color: var(--gray-100) !important;
   border-radius: 10px !important;
+  min-width: 20rem !important;
   max-width: 20rem !important;
   max-height: 34rem !important;
   min-height: 34rem !important;

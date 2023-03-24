@@ -3,18 +3,14 @@ import { Card, Button } from "react-bootstrap";
 import { getNPC } from "../../service/npc-service";
 
 type NPC = {
-  info: String;
-};
-
-const npc: NPC = {
-  info: getNPC(),
+  info: string;
 };
 
 export function Npc() {
-  const [isNPC, setNPC] = useState(npc);
+  const [npc, setNPC] = useState<NPC>({ info: getNPC() });
 
   const changeNPC = () => {
-    setNPC({ ...isNPC, info: getNPC() });
+    setNPC({ ...npc, info: getNPC() });
   };
 
   return (
@@ -23,12 +19,13 @@ export function Npc() {
 
       <Card.Body className="d-grid gap-3">
         <div className="mx-auto">
-          <Card.Text as="p">{isNPC.info}</Card.Text>
+          <Card.Text as="p">{npc.info}</Card.Text>
         </div>
       </Card.Body>
+
       <Card.Footer className="text-muted text-center">
         <div className="mx-auto">
-          <Button variant="dark" onClick={() => changeNPC()}>
+          <Button variant="dark" onClick={changeNPC}>
             Criar
           </Button>
         </div>

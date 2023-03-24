@@ -5,9 +5,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
 type Weapon = {
-  name: String;
-  damage: String;
-  properties: String;
+  name: string;
+  damage: string;
+  properties: string;
 };
 
 const GET_WEAPONS_QUERY = gql`
@@ -28,13 +28,9 @@ export function Weapons() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const handleSelectWeapon = (weapon: Weapon) =>
-    setSelectedWeapons(selectedWeapons.concat(weapon));
-
-  const handleDeleteWeapon = (index: number) => {
-    const updatedWeapons = [...selectedWeapons];
-    updatedWeapons.splice(index, 1);
-    setSelectedWeapons(updatedWeapons);
-  };
+    setSelectedWeapons([...selectedWeapons, weapon]);
+  const handleDeleteWeapon = (index: number) =>
+    setSelectedWeapons(selectedWeapons.filter((_, i) => i !== index));
 
   return (
     <>
@@ -53,7 +49,6 @@ export function Weapons() {
             <th></th>
           </tr>
         </thead>
-
         <tbody>
           {selectedWeapons.map((weapon, index) => (
             <tr key={index}>
@@ -82,8 +77,8 @@ export function Weapons() {
             <thead>
               <tr>
                 <th>Nome</th>
-                <th>Quantidade</th>
-                <th>Preço</th>
+                <th>Dano</th>
+                <th>Propriedade</th>
                 <th></th>
               </tr>
             </thead>

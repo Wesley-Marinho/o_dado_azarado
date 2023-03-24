@@ -1,14 +1,29 @@
 import { useState } from "react";
-import { Card, Button, ButtonGroup, Form, InputGroup, FloatingLabel } from "react-bootstrap";
+import {
+  Card,
+  Button,
+  ButtonGroup,
+  Form,
+  InputGroup,
+  FloatingLabel,
+} from "react-bootstrap";
 import "./style.scss";
 
-type AdvancedRoll = { quantity: number; modifier: number };
-const defaultAdvancedRoll: AdvancedRoll = { quantity: 1, modifier: 0 };
+interface AdvancedRoll {
+  quantity: number;
+  modifier: number;
+}
+
+const defaultAdvancedRoll: AdvancedRoll = {
+  quantity: 1,
+  modifier: 0,
+};
 
 export function Dice() {
-  const [roll, setRoll] = useState(0);
-  const [advancedRoll, setAdvancedRoll] = useState(defaultAdvancedRoll);
-  const [animationClass, setAnimationClass] = useState("");
+  const [roll, setRoll] = useState<number>(0);
+  const [advancedRoll, setAdvancedRoll] =
+    useState<AdvancedRoll>(defaultAdvancedRoll);
+  const [animationClass, setAnimationClass] = useState<string>("");
 
   const rollDice = (side: number) => {
     let rollAux = 0;
@@ -22,8 +37,13 @@ export function Dice() {
     }, 1000);
   };
 
-  const changeRoll = <P extends keyof AdvancedRoll>(prop: P, value: AdvancedRoll[P]) => {
-    setAdvancedRoll({ ...advancedRoll, [prop]: value });
+  const changeRoll = <P extends keyof AdvancedRoll>(
+    prop: P,
+    value: AdvancedRoll[P]
+  ) => {
+    if (value <= 100) {
+      setAdvancedRoll({ ...advancedRoll, [prop]: value });
+    }
   };
 
   return (
@@ -39,14 +59,11 @@ export function Dice() {
             value={advancedRoll.quantity}
             onChange={(e) => {
               const value = parseInt(e.target.value);
-              if (value <= 100) {
-                changeRoll("quantity", value);
-              }
+              changeRoll("quantity", value);
             }}
           />
         </FloatingLabel>
       </InputGroup>
-
       <InputGroup size="sm" className="mt-2">
         <FloatingLabel label="Modificador">
           <Form.Control
@@ -58,9 +75,7 @@ export function Dice() {
             value={advancedRoll.modifier}
             onChange={(e) => {
               const value = parseInt(e.target.value);
-              if (value <= 100) {
-                changeRoll("modifier", value);
-              }
+              changeRoll("modifier", value);
             }}
           />
         </FloatingLabel>

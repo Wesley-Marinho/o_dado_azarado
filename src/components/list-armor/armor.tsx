@@ -31,24 +31,24 @@ export function Armors() {
   return (
     <Container className="list-container">
       <div className="search">
-        <Form>
-          <Form.Group controlId="armor-search">
-            <Form.Control
-              type="text"
-              placeholder="O que está procurando?"
-              value={searchString}
-              onChange={(event) => setSearchString(event.target.value)}
-            />
-          </Form.Group>
-        </Form>
+        <Form.Group controlId="armor-search">
+          <Form.Control
+            type="text"
+            placeholder="O que está procurando?"
+            value={searchString}
+            onChange={(event) => setSearchString(event.target.value)}
+          />
+        </Form.Group>
       </div>
       <ListGroup>
         {filteredArmors?.map(({ armorClass, name, price, type }) => (
           <ListGroup.Item key={name}>
-            <Form.Label>Nome: {name}</Form.Label> <br />
-            <Form.Label>Classe de armadura: +{armorClass}</Form.Label> <br />
-            <Form.Label>Tipo: {type}</Form.Label> <br />
-            <Form.Label>Preço: {price}</Form.Label>
+            <div>
+              <div>Nome: {name}</div>
+              <div>Classe de armadura: +{armorClass}</div>
+              <div>Tipo: {type}</div>
+              <div>Preço: {price}</div>
+            </div>
           </ListGroup.Item>
         ))}
       </ListGroup>

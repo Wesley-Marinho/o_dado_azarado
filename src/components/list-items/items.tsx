@@ -19,13 +19,12 @@ const GET_ITEMS_QUERY = gql`
 `;
 
 export function Items() {
+  const [search, setSearch] = useState("");
   const { data } = useQuery<{ items: Item[] }>(GET_ITEMS_QUERY);
-  const [search, setSearch] = useState<string>("");
-  const filteredItems = data?.items.filter(
-    (item) =>
-      item.name.toLowerCase().includes(search.toLowerCase()) ||
-      item.price.toLowerCase().includes(search.toLowerCase()) ||
-      item.quantity.toLowerCase().includes(search.toLowerCase())
+  const filteredItems = data?.items.filter((item) =>
+    Object.values(item).some((value) =>
+      value.toLowerCase().includes(search.toLowerCase())
+    )
   );
 
   return (
@@ -44,7 +43,7 @@ export function Items() {
       </div>
       <ListGroup>
         {filteredItems?.map(({ name, price, quantity }) => (
-          <ListGroup.Item>
+          <ListGroup.Item key={name}>
             <Form.Label>Nome: {name}</Form.Label> <br />
             <Form.Label>Quantidade: {quantity}</Form.Label> <br />
             <Form.Label>Preço: {price}</Form.Label>
