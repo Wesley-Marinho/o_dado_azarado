@@ -8,6 +8,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Exploration } from "./exploration/exploration";
 import "./style.scss";
+import { Interaction } from "./interaction/interaction";
 
 type OverlayState = {
   map: boolean;
@@ -66,7 +67,9 @@ export function Tabs() {
         </div>
       )}
 
-      {overlays.social && <div className="overlay"></div>}
+      {overlays.social && <div className="overlay">
+        <Interaction/>
+        </div>}
 
       {overlays.battle && <div className="overlay"></div>}
     </div>
