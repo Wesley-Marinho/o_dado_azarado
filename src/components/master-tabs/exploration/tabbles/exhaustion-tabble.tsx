@@ -1,5 +1,7 @@
 import { gql, useQuery } from "@apollo/client";
 import { Table, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 
 type Exhaustion = {
   level: string;
@@ -22,20 +24,24 @@ export function ExhaustionTablle() {
 
   return (
     <Table bordered>
-      <OverlayTrigger
-        placement="right"
-        overlay={
-          <Tooltip>
-            Um descanso longo com comida e água reduz a exaustão em 1.
-          </Tooltip>
-        }>
-        <thead>
-          <tr>
-            <th>Nível</th>
-            <th>Efeito</th>
-          </tr>
-        </thead>
-      </OverlayTrigger>
+      <thead>
+        <tr>
+          <th>Nível</th>
+          <th>
+            Efeito{" "}
+            <OverlayTrigger
+              placement="right"
+              overlay={
+                <Tooltip>
+                  Um descanso longo com comida e água reduz a exaustão em 1.
+                </Tooltip>
+              }
+            >
+              <FontAwesomeIcon icon={faInfoCircle} className="ml-1" />
+            </OverlayTrigger>
+          </th>
+        </tr>
+      </thead>
 
       <tbody>
         {data?.exhaustions.map(({ level, effect }) => (

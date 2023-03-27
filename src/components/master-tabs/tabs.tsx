@@ -7,8 +7,9 @@ import {
   faShieldHalved,
 } from "@fortawesome/free-solid-svg-icons";
 import { Exploration } from "./exploration/exploration";
-import "./style.scss";
 import { Interaction } from "./interaction/interaction";
+import { Battle } from "./battle/battle";
+import "./style.scss";
 
 type OverlayState = {
   map: boolean;
@@ -67,11 +68,17 @@ export function Tabs() {
         </div>
       )}
 
-      {overlays.social && <div className="overlay">
-        <Interaction/>
-        </div>}
+      {overlays.social && (
+        <div className="overlay">
+          <Interaction />
+        </div>
+      )}
 
-      {overlays.battle && <div className="overlay"></div>}
+      {overlays.battle && (
+        <div className="overlay">
+          <Battle />
+        </div>
+      )}
     </div>
   );
 }

@@ -3,22 +3,22 @@ import { Table, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 
-type Track = {
+type Grab = {
   type: string;
-  difficulty: string;
+  effect: string;
 };
 
-const GET_TRACKS_QUERY = gql`
+const GET_GRABS_QUERY = gql`
   query {
-    tracks {
+    grabs {
       type
-      difficulty
+      effect
     }
   }
 `;
 
-export function TrackTablle() {
-  const { data } = useQuery<{ tracks: Track[] }>(GET_TRACKS_QUERY);
+export function GrabTablle() {
+  const { data } = useQuery<{ grabs: Grab[] }>(GET_GRABS_QUERY);
 
   return (
     <Table bordered>
@@ -26,13 +26,14 @@ export function TrackTablle() {
         <tr>
           <th>Tipo</th>
           <th>
-            Dificuldade{" "}
+            Efeito{" "}
             <OverlayTrigger
               placement="right"
               overlay={
                 <Tooltip>
-                  Falha no Teste. Leva 1h para reencontrar a trilha (ar livre)
-                  ou 10 minutos em área confinada (masmorra).
+                  Para empurrar (1 ataque): Força (Atletismo) do atacante contra
+                  Força (Atletismo) ou Destreza (Acrobacia) do alvo. Sucesso.
+                  Derruba o alvo ou o empurra 1,5m.
                 </Tooltip>
               }
             >
@@ -41,12 +42,11 @@ export function TrackTablle() {
           </th>
         </tr>
       </thead>
-
       <tbody>
-        {data?.tracks.map(({ type, difficulty }) => (
+        {data?.grabs.map(({ type, effect }) => (
           <tr key={type}>
             <td>{type}</td>
-            <td>{difficulty}</td>
+            <td>{effect}</td>
           </tr>
         ))}
       </tbody>
