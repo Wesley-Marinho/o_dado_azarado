@@ -16,7 +16,9 @@ const GET_DISTANCES_QUERY = gql`
 `;
 
 export function DistanceTablle() {
-  const { data } = useQuery<{ distances: Distance[] }>(GET_DISTANCES_QUERY);
+  const { data } = useQuery<{ distances: Distance[] }>(GET_DISTANCES_QUERY, {
+    context: { clientName: "client1" },
+  });
 
   return (
     <Table bordered>

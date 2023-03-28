@@ -16,7 +16,10 @@ const GET_CONDITIONS_QUERY = gql`
 `;
 
 export function ConditionTablle() {
-  const { data } = useQuery<{ conditions: Condition[] }>(GET_CONDITIONS_QUERY);
+  const { data } = useQuery<{ conditions: Condition[] }>(
+    GET_CONDITIONS_QUERY,
+    { context: { clientName: "client1" } }
+  );
 
   return (
     <Table bordered>

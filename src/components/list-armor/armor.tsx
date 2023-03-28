@@ -21,7 +21,9 @@ const GET_ARMORS_QUERY = gql`
 `;
 
 export function Armors() {
-  const { data } = useQuery<{ armors: Armor[] }>(GET_ARMORS_QUERY);
+  const { data } = useQuery<{ armors: Armor[] }>(GET_ARMORS_QUERY, {
+    context: { clientName: "client1" },
+  });
   const [searchString, setSearchString] = useState("");
 
   const filteredArmors = data?.armors.filter((armor) =>

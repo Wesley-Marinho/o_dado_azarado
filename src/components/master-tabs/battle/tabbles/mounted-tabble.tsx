@@ -16,7 +16,9 @@ const GET_MOUNTEDS_QUERY = gql`
 `;
 
 export function MountedTablle() {
-  const { data } = useQuery<{ mounteds: Mounted[] }>(GET_MOUNTEDS_QUERY);
+  const { data } = useQuery<{ mounteds: Mounted[] }>(GET_MOUNTEDS_QUERY, {
+    context: { clientName: "client1" },
+  });
 
   return (
     <Table bordered>

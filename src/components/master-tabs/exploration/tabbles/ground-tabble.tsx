@@ -16,7 +16,9 @@ const GET_GROUNDS_QUERY = gql`
 `;
 
 export function GroundTablle() {
-  const { data } = useQuery<{ grounds: Ground[] }>(GET_GROUNDS_QUERY);
+  const { data } = useQuery<{ grounds: Ground[] }>(GET_GROUNDS_QUERY, {
+    context: { clientName: "client1" },
+  });
 
   return (
     <Table bordered>

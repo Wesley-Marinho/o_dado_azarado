@@ -16,7 +16,9 @@ const GET_PORSUES_QUERY = gql`
 `;
 
 export function PursueTablle() {
-  const { data } = useQuery<{ pursues: Pursue[] }>(GET_PORSUES_QUERY);
+  const { data } = useQuery<{ pursues: Pursue[] }>(GET_PORSUES_QUERY, {
+    context: { clientName: "client1" },
+  });
 
   return (
     <Table bordered>

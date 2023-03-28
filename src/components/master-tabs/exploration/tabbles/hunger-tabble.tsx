@@ -16,7 +16,9 @@ const GET_HUNGERS_QUERY = gql`
 `;
 
 export function HungerTablle() {
-  const { data } = useQuery<{ hungers: Hunger[] }>(GET_HUNGERS_QUERY);
+  const { data } = useQuery<{ hungers: Hunger[] }>(GET_HUNGERS_QUERY, {
+    context: { clientName: "client1" },
+  });
 
   return (
     <Table bordered>

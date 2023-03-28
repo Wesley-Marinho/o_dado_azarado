@@ -16,7 +16,10 @@ const GET_DIFFICULTIES_QUERY = gql`
 `;
 
 export function DifficultyTablle() {
-  const { data } = useQuery<{ difficulties: Difficulty[] }>(GET_DIFFICULTIES_QUERY);
+  const { data } = useQuery<{ difficulties: Difficulty[] }>(
+    GET_DIFFICULTIES_QUERY,
+    { context: { clientName: "client1" } }
+  );
 
   return (
     <Table bordered>

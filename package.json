@@ -12,6 +12,8 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/mongoose": "^5.11.97",
+    "apollo-link": "^1.2.14",
+    "apollo-link-http": "^1.5.17",
     "apollo-server": "^3.10.2",
     "bootstrap": "^5.2.1",
     "class-validator": "^0.13.2",

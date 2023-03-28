@@ -16,7 +16,9 @@ const GET_SERVICE_QUERY = gql`
 `;
 
 export function ServiceTablle() {
-  const { data } = useQuery<{ services: Service[] }>(GET_SERVICE_QUERY);
+  const { data } = useQuery<{ services: Service[] }>(GET_SERVICE_QUERY, {
+    context: { clientName: "client1" },
+  });
 
   return (
     <Table bordered>

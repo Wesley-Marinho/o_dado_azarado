@@ -16,7 +16,9 @@ const GET_CLIMATES_QUERY = gql`
 `;
 
 export function ClimateTablle() {
-  const { data } = useQuery<{ climates: Climate[] }>(GET_CLIMATES_QUERY);
+  const { data } = useQuery<{ climates: Climate[] }>(GET_CLIMATES_QUERY, {
+    context: { clientName: "client1" },
+  });
 
   return (
     <Table bordered>

@@ -21,7 +21,9 @@ const GET_ITEMS_QUERY = gql`
 `;
 
 export function Items() {
-  const { data } = useQuery<{ items: Item[] }>(GET_ITEMS_QUERY);
+  const { data } = useQuery<{ items: Item[] }>(GET_ITEMS_QUERY, {
+    context: { clientName: "client1" },
+  });
   const [show, setShow] = useState(false);
   const [selectedItems, setSelectedItems] = useState<Item[]>([]);
 

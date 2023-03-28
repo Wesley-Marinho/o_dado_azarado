@@ -16,7 +16,8 @@ const GET_ACTIVITIES_QUERY = gql`
 `;
 
 export function ActivityTablle() {
-  const { data } = useQuery<{ activities: Activity[] }>(GET_ACTIVITIES_QUERY);
+  const { data } = useQuery<{ activities: Activity[] }>(GET_ACTIVITIES_QUERY,
+    { context: { clientName: "client1" } });
 
   return (
     <Table bordered>

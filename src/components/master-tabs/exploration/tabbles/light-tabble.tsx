@@ -18,7 +18,9 @@ const GET_LIGHTS_QUERY = gql`
 `;
 
 export function LightTablle() {
-  const { data } = useQuery<{ lights: Light[] }>(GET_LIGHTS_QUERY);
+  const { data } = useQuery<{ lights: Light[] }>(GET_LIGHTS_QUERY, {
+    context: { clientName: "client1" },
+  });
 
   return (
     <Table bordered>

@@ -19,7 +19,8 @@ const GET_EXHAUSTIONS_QUERY = gql`
 
 export function ExhaustionTablle() {
   const { data } = useQuery<{ exhaustions: Exhaustion[] }>(
-    GET_EXHAUSTIONS_QUERY
+    GET_EXHAUSTIONS_QUERY,
+    { context: { clientName: "client1" } }
   );
 
   return (

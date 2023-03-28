@@ -3,20 +3,22 @@ import { Table } from "react-bootstrap";
 
 type Escape = {
   type: string;
- effect: string;
+  effect: string;
 };
 
 const GET_ESCAPES_QUERY = gql`
   query {
     escapes {
       type
-     effect
+      effect
     }
   }
 `;
 
 export function EscapeTablle() {
-  const { data } = useQuery<{ escapes: Escape[] }>(GET_ESCAPES_QUERY);
+  const { data } = useQuery<{ escapes: Escape[] }>(GET_ESCAPES_QUERY, {
+    context: { clientName: "client1" },
+  });
 
   return (
     <Table bordered>

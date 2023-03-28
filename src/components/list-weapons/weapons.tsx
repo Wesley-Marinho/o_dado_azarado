@@ -21,7 +21,9 @@ const GET_WEAPONS_QUERY = gql`
 `;
 
 export function Weapons() {
-  const { data } = useQuery<{ weapons: Weapon[] }>(GET_WEAPONS_QUERY);
+  const { data } = useQuery<{ weapons: Weapon[] }>(GET_WEAPONS_QUERY, {
+    context: { clientName: "client1" },
+  });
   const [searchTerm, setSearchTerm] = useState("");
 
   const filteredWeapons = data?.weapons.filter((weapon) =>

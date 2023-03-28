@@ -16,7 +16,9 @@ const GET_MOUNTS_QUERY = gql`
 `;
 
 export function MountTablle() {
-  const { data } = useQuery<{ mounts: Mount[] }>(GET_MOUNTS_QUERY);
+  const { data } = useQuery<{ mounts: Mount[] }>(GET_MOUNTS_QUERY, {
+    context: { clientName: "client1" },
+  });
 
   return (
     <Table bordered>

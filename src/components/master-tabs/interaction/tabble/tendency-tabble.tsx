@@ -16,7 +16,9 @@ const GET_TENDENCIES_QUERY = gql`
 `;
 
 export function TendencyTablle() {
-  const { data } = useQuery<{ tendencies: Tendency[] }>(GET_TENDENCIES_QUERY);
+  const { data } = useQuery<{ tendencies: Tendency[] }>(GET_TENDENCIES_QUERY, {
+    context: { clientName: "client1" },
+  });
 
   return (
     <Table bordered>

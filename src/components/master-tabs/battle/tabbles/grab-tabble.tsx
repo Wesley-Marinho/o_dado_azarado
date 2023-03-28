@@ -18,7 +18,9 @@ const GET_GRABS_QUERY = gql`
 `;
 
 export function GrabTablle() {
-  const { data } = useQuery<{ grabs: Grab[] }>(GET_GRABS_QUERY);
+  const { data } = useQuery<{ grabs: Grab[] }>(GET_GRABS_QUERY, {
+    context: { clientName: "client1" },
+  });
 
   return (
     <Table bordered>

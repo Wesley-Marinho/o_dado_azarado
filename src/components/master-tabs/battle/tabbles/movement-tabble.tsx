@@ -16,7 +16,9 @@ const GET_MOVEMENTS_QUERY = gql`
 `;
 
 export function MovementTablle() {
-  const { data } = useQuery<{ movements: Movement[] }>(GET_MOVEMENTS_QUERY);
+  const { data } = useQuery<{ movements: Movement[] }>(GET_MOVEMENTS_QUERY, {
+    context: { clientName: "client1" },
+  });
 
   return (
     <Table bordered>

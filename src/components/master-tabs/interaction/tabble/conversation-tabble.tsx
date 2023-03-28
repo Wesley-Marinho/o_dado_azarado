@@ -16,7 +16,10 @@ const GET_TENDENCIES_QUERY = gql`
 `;
 
 export function ConversationTablle() {
-  const { data } = useQuery<{ conversations: Conversation[] }>(GET_TENDENCIES_QUERY);
+  const { data } = useQuery<{ conversations: Conversation[] }>(
+    GET_TENDENCIES_QUERY,
+    { context: { clientName: "client1" } }
+  );
 
   return (
     <Table bordered>

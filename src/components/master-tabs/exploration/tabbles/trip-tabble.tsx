@@ -20,7 +20,9 @@ const GET_TRIPS_QUERY = gql`
 `;
 
 export function TripTablle() {
-  const { data } = useQuery<{ trips: Trip[] }>(GET_TRIPS_QUERY);
+  const { data } = useQuery<{ trips: Trip[] }>(GET_TRIPS_QUERY, {
+    context: { clientName: "client1" },
+  });
 
   return (
     <Table bordered>

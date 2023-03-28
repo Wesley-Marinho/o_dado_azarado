@@ -18,7 +18,9 @@ const GET_TRACKS_QUERY = gql`
 `;
 
 export function TrackTablle() {
-  const { data } = useQuery<{ tracks: Track[] }>(GET_TRACKS_QUERY);
+  const { data } = useQuery<{ tracks: Track[] }>(GET_TRACKS_QUERY, {
+    context: { clientName: "client1" },
+  });
 
   return (
     <Table bordered>

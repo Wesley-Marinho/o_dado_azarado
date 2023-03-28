@@ -18,7 +18,9 @@ const GET_FIGHTS_QUERY = gql`
 `;
 
 export function FightTablle() {
-  const { data } = useQuery<{ fights: Fight[] }>(GET_FIGHTS_QUERY);
+  const { data } = useQuery<{ fights: Fight[] }>(GET_FIGHTS_QUERY, {
+    context: { clientName: "client1" },
+  });
 
   return (
     <Table bordered>

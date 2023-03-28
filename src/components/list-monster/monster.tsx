@@ -2,29 +2,23 @@ import { gql, useQuery } from "@apollo/client";
 import { Container, ListGroup, Form } from "react-bootstrap";
 import { useState } from "react";
 
-type Item = {
+type Monster = {
   name: string;
-  price: string;
-  quantity: string;
 };
 
-const GET_ITEMS_QUERY = gql`
+const GET_MONSTERS_QUERY = gql`
   query {
-    items(first: 95, orderBy: name_ASC) {
+    monsters(orderBy: name_ASC) {
       name
-      price
-      quantity
     }
   }
 `;
 
-export function Items() {
+export function MonsterList() {
   const [search, setSearch] = useState("");
-  const { data } = useQuery<{ items: Item[] }>(GET_ITEMS_QUERY, {
-    context: { clientName: "client1" },
-  });
-  const filteredItems = data?.items.filter((item) =>
-    Object.values(item).some((value) =>
+  const { data } = useQuery<{ monsters: Monster[] }>(GET_MONSTERS_QUERY);
+  const filteredMonsters = data?.monsters.filter((monster) =>
+    Object.values(monster).some((value) =>
       value.toLowerCase().includes(search.toLowerCase())
     )
   );
@@ -44,11 +38,9 @@ export function Items() {
         </Form>
       </div>
       <ListGroup>
-        {filteredItems?.map(({ name, price, quantity }) => (
+        {filteredMonsters?.map(({ name }) => (
           <ListGroup.Item key={name}>
             <Form.Label>Nome: {name}</Form.Label> <br />
-            <Form.Label>Quantidade: {quantity}</Form.Label> <br />
-            <Form.Label>Preço: {price}</Form.Label>
           </ListGroup.Item>
         ))}
       </ListGroup>
