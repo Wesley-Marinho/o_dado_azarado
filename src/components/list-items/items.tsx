@@ -20,9 +20,11 @@ const GET_ITEMS_QUERY = gql`
 
 export function Items() {
   const [search, setSearch] = useState("");
+  
   const { data } = useQuery<{ items: Item[] }>(GET_ITEMS_QUERY, {
     context: { clientName: "client1" },
   });
+
   const filteredItems = data?.items.filter((item) =>
     Object.values(item).some((value) =>
       value.toLowerCase().includes(search.toLowerCase())
