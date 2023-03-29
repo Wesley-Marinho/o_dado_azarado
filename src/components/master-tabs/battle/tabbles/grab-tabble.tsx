@@ -34,8 +34,8 @@ export function GrabTablle() {
               overlay={
                 <Tooltip>
                   Para empurrar (1 ataque): Força (Atletismo) do atacante contra
-                  Força (Atletismo) ou Destreza (Acrobacia) do alvo. Sucesso.
-                  Derruba o alvo ou o empurra 1,5m.
+                  Força (Atletismo) ou Destreza (Acrobacia) do alvo. <br/>
+                  Sucesso - Derruba o alvo ou o empurra 1,5m.
                 </Tooltip>
               }
             >

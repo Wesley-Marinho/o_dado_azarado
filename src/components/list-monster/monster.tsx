@@ -5,6 +5,15 @@ import { useState } from "react";
 type Monster = {
   armor: string;
   attacks: string;
+  attribute: {
+    car: string;
+    con: string;
+    des: string;
+    for: string;
+    id: string;
+    inte: string;
+    sab: string;
+  };
   challengLevel: string;
   description: string;
   displacement: string;
@@ -23,7 +32,6 @@ const GET_MONSTERS_QUERY = gql`
         con
         des
         for
-        id
         inte
         sab
       }
@@ -67,6 +75,7 @@ export function MonsterList() {
             armor,
             healthPoints,
             challengLevel,
+            attribute,
             exp,
             displacement,
             description,
@@ -77,10 +86,21 @@ export function MonsterList() {
               <Form.Label>Armadura: {armor}</Form.Label> <br />
               <Form.Label>Pontos de vida: {healthPoints}</Form.Label> <br />
               <Form.Label>Nível de desafio: {challengLevel}</Form.Label> <br />
+              <Form.Label>Carisma: {attribute.car}</Form.Label> <br />
+              <Form.Label>Constituição: {attribute.con}</Form.Label> <br />
+              <Form.Label>Destreza: {attribute.des}</Form.Label> <br />
+              <Form.Label>Força: {attribute.for}</Form.Label> <br />
+              <Form.Label>Inteligencia: {attribute.inte}</Form.Label> <br />
+              <Form.Label>Sabedoria: {attribute.sab}</Form.Label> <br />
               <Form.Label>Experiencia: {exp} pontos</Form.Label> <br />
               <Form.Label>Deslocamento: {displacement}</Form.Label> <br />
+              <br />
               <Form.Label>Descrição: {description}</Form.Label> <br />
-              <Form.Label>Ataques: {attacks}</Form.Label> <br />
+              <br />
+              <Form.Label>Ataques:</Form.Label>
+              {attacks.split("\n").map((line, index) => (
+                <p key={index}>{line}</p>
+              ))}
             </ListGroup.Item>
           )
         )}

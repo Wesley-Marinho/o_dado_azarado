@@ -10,8 +10,7 @@ export function Battle(){
         <Weapons />
         <hr />
         <Magic />
-      </div>
-      <div className="ficha-column">
+        <hr />
         <Items />
       </div>
     </div>
